@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../data/recipes_data.dart';
-import '../models/recipe.dart';
 import 'details_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,7 +10,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     builder: (_) => DetailsScreen(recipe: recipe),
                   ),
                 ).then((_) {
-                  setState(() {}); // refresh when coming back
+                  setState(() {});
                 });
               },
             ),
