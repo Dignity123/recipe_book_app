@@ -36,6 +36,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
+            // 🔥 Recipe Image
             Image.asset(
               recipe.imagePath,
               height: 220,
@@ -43,38 +45,68 @@ class _DetailsScreenState extends State<DetailsScreen> {
               fit: BoxFit.cover,
             ),
 
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
 
+            // 🥕 Ingredients Title
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 "Ingredients",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
 
+            const SizedBox(height: 8),
+
+            // 🥕 Ingredients List
             ...recipe.ingredients.map(
               (ingredient) => Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                child: Text("• $ingredient"),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 4,
+                ),
+                child: Text(
+                  "• $ingredient",
+                  style: const TextStyle(fontSize: 15),
+                ),
               ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 24),
 
+            // 📋 Instructions Title
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 "Instructions",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
 
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(recipe.instructions),
+            const SizedBox(height: 8),
+
+            // 📋 Numbered Step-by-Step Instructions
+            ...List.generate(
+              recipe.instructions.length,
+              (index) => Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 6,
+                ),
+                child: Text(
+                  "${index + 1}. ${recipe.instructions[index]}",
+                  style: const TextStyle(fontSize: 15),
+                ),
+              ),
             ),
+
+            const SizedBox(height: 30),
           ],
         ),
       ),

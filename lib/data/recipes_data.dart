@@ -2,7 +2,7 @@ import '../models/recipe.dart';
 
 final List<Recipe> sampleRecipes = [
 
-  // 1️⃣ Spaghetti Bolognese
+  // 1️⃣ Spaghetti
   Recipe(
     name: 'Spaghetti Bolognese',
     imagePath: 'assets/images/spaghetti.jpeg',
@@ -13,8 +13,12 @@ final List<Recipe> sampleRecipes = [
       'Onion',
       'Garlic',
     ],
-    instructions:
-        'Cook pasta. Brown beef with onion & garlic. Add sauce. Combine & serve.',
+    instructions: [
+      'Cook pasta according to package directions.',
+      'Brown ground beef with onion and garlic.',
+      'Add tomato sauce and simmer.',
+      'Combine pasta with sauce and serve.',
+    ],
   ),
 
   // 2️⃣ Whole Brazino
@@ -23,20 +27,24 @@ final List<Recipe> sampleRecipes = [
     imagePath: 'assets/images/whole_brazino.jpg',
     ingredients: [
       'Extra virgin olive oil',
-      '1 lb whole branzino (cleaned)',
+      'Whole brazino fish',
       'Kosher salt',
       'Black pepper',
-      '1/2 lemon (sliced)',
-      '1/2 red onion (sliced)',
-      '1 cup cherry tomatoes (halved)',
-      '1/2 cup fresh dill',
+      'Lemon slices',
+      'Red onion',
+      'Cherry tomatoes',
+      'Fresh dill',
       'Ladolemono sauce',
     ],
-    instructions:
-        'Preheat oven to 400°F. Pat fish dry and make slits on both sides. '
-        'Season with salt and pepper. Stuff cavity with lemon and onion. '
-        'Roast 5 minutes per side until cooked and flaky. Broil 3–4 minutes to char skin. '
-        'Drizzle with ladolemono sauce, top with tomatoes and fresh dill. Serve immediately.',
+    instructions: [
+      'Preheat oven to 400°F.',
+      'Pat fish dry and cut slits on both sides.',
+      'Season inside and outside with salt and pepper.',
+      'Stuff cavity with onion and lemon.',
+      'Roast 5 minutes per side until flaky.',
+      'Broil 3–4 minutes to char skin.',
+      'Top with sauce, tomatoes and dill. Serve immediately.',
+    ],
   ),
 
   // 3️⃣ Nigerian Jollof Rice
@@ -44,25 +52,28 @@ final List<Recipe> sampleRecipes = [
     name: 'Nigerian Jollof Rice',
     imagePath: 'assets/images/jollof_rice.jpg',
     ingredients: [
-      '1/3 cup oil',
-      '6 Roma tomatoes',
+      'Oil',
+      'Roma tomatoes',
       'Red bell peppers',
-      '3 red onions',
-      'Scotch bonnet pepper',
+      'Red onions',
+      'Scotch bonnet',
       'Tomato paste',
       'Curry powder',
       'Thyme',
       'Bay leaves',
       'Stock',
-      'Butter (optional)',
-      '4 cups long grain rice',
-      'Salt and pepper',
+      'Butter',
+      'Long grain rice',
     ],
-    instructions:
-        'Blend tomatoes, peppers, onions and stock. Simmer 10–12 minutes. '
-        'Fry sliced onions with spices. Add tomato paste and reduced blend. '
-        'Add stock and bring to boil. Add rice, cover tightly and steam on low 30 minutes. '
-        'Adjust seasoning. For smoky party rice, increase heat 3–5 minutes to toast slightly.',
+    instructions: [
+      'Blend tomatoes, peppers, onions and stock.',
+      'Simmer mixture for 10–12 minutes.',
+      'Fry sliced onions with spices.',
+      'Add tomato paste and blended mixture.',
+      'Add stock and bring to boil.',
+      'Add rice, cover tightly and steam 30 minutes.',
+      'Adjust seasoning and steam until fully cooked.',
+    ],
   ),
 
   // 4️⃣ Mac and Cheese
@@ -70,40 +81,79 @@ final List<Recipe> sampleRecipes = [
     name: 'Mac and Cheese',
     imagePath: 'assets/images/mac_and_cheese.jpg',
     ingredients: [
-      '16 oz cavatappi pasta',
+      'Cavatappi pasta',
       'Cheddar cheese soup',
-      '3 1/4 cups shredded white cheddar',
-      '1 1/2 cups milk',
+      'White cheddar cheese',
+      'Milk',
       'Cayenne pepper',
-      '1/4 cup panko',
-      '2 tbsp melted butter',
+      'Panko',
+      'Butter',
     ],
-    instructions:
-        'Cook pasta. Mix soup, cheese, milk and cayenne. '
-        'Place in baking dish. Mix panko, butter and remaining cheese. '
-        'Sprinkle on top. Bake at 375°F for 20 minutes until golden.',
+    instructions: [
+      'Cook pasta according to package directions.',
+      'Mix soup, cheese, milk and cayenne.',
+      'Transfer to baking dish.',
+      'Mix panko, butter and remaining cheese.',
+      'Sprinkle topping over pasta.',
+      'Bake at 375°F for 20 minutes.',
+    ],
   ),
 
-  // 5️⃣ Beef and Broccoli Stir Fry
+  // 5️⃣ Beef and Broccoli
   Recipe(
     name: 'Beef and Broccoli Stir Fry',
     imagePath: 'assets/images/beef_and_broccoli.jpg',
     ingredients: [
-      '1 lb sirloin beef',
-      '4 cups broccoli florets',
+      'Sirloin beef',
+      'Broccoli florets',
       'Cornstarch',
-      'MAGGI beef bouillon',
+      'Bouillon',
       'Seasoning sauce',
       'Red wine vinegar',
       'Sugar',
       'Ginger',
       'Garlic',
-      'Vegetable oil',
-      'Cooked rice',
+      'Oil',
+      'Rice',
     ],
-    instructions:
-        'Mix sauce ingredients. Heat oil and cook ginger and garlic. '
-        'Add beef and cook until no longer pink. Add broccoli. '
-        'Stir in sauce and cook until thickened. Serve over rice.',
+    instructions: [
+      'Combine sauce ingredients in a bowl.',
+      'Heat oil and cook ginger and garlic.',
+      'Add beef and cook until browned.',
+      'Add broccoli and cook briefly.',
+      'Stir in sauce and cook until thickened.',
+      'Serve over rice.',
+    ],
+  ),
+
+  // 6️⃣ Kung Poa Chicken
+  Recipe(
+    name: 'Kung Poa Chicken',
+    imagePath: 'assets/images/kung_poa_chicken.webp',
+    ingredients: [
+      'Boneless skinless chicken breast',
+      'Dried chili peppers',
+      'Soy sauce',
+      'Rice or sherry vinegar',
+      'Cornstarch',
+      'Sugar',
+      'Toasted sesame oil',
+      'Canola oil',
+      'Red and green bell peppers',
+      'Cashews',
+      'Fresh garlic',
+      'Fresh ginger',
+    ],
+    instructions: [
+      'Mix soy sauce, vinegar and sugar to make the sauce.',
+      'Slice chicken into uniform strips.',
+      'Heat oil in skillet or wok.',
+      'Cook chicken until crispy and fully cooked.',
+      'Stir-fry bell peppers briefly.',
+      'Add garlic, ginger, cashews and dried chilies.',
+      'Return chicken to pan.',
+      'Pour in sauce and stir until thickened.',
+      'Serve immediately.',
+    ],
   ),
 ];
