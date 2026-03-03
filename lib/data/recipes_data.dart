@@ -2,10 +2,10 @@ import '../models/recipe.dart';
 
 final List<Recipe> sampleRecipes = [
 
-  // 1 Spaghetti
+  // 1️⃣ Spaghetti Bolognese
   Recipe(
     name: 'Spaghetti Bolognese',
-    imagePath: 'assets/images/pasta.jpg',
+    imagePath: 'assets/images/spaghetti.jpeg',
     ingredients: [
       'Spaghetti',
       'Ground beef',
@@ -17,10 +17,10 @@ final List<Recipe> sampleRecipes = [
         'Cook pasta. Brown beef with onion & garlic. Add sauce. Combine & serve.',
   ),
 
-  // 2️ Whole Branzino
+  // 2️⃣ Whole Brazino
   Recipe(
-    name: 'Whole Branzino',
-    imagePath: 'assets/images/branzino.jpg',
+    name: 'Whole Brazino',
+    imagePath: 'assets/images/whole_brazino.jpg',
     ingredients: [
       'Extra virgin olive oil',
       '1 lb whole branzino (cleaned)',
@@ -39,10 +39,10 @@ final List<Recipe> sampleRecipes = [
         'Drizzle with ladolemono sauce, top with tomatoes and fresh dill. Serve immediately.',
   ),
 
-  // 3️ Nigerian Jollof Rice
+  // 3️⃣ Nigerian Jollof Rice
   Recipe(
     name: 'Nigerian Jollof Rice',
-    imagePath: 'assets/images/jollof.jpg',
+    imagePath: 'assets/images/jollof_rice.jpg',
     ingredients: [
       '1/3 cup oil',
       '6 Roma tomatoes',
@@ -65,10 +65,10 @@ final List<Recipe> sampleRecipes = [
         'Adjust seasoning. For smoky party rice, increase heat 3–5 minutes to toast slightly.',
   ),
 
-  // 4️ Mac and Cheese
+  // 4️⃣ Mac and Cheese
   Recipe(
     name: 'Mac and Cheese',
-    imagePath: 'assets/images/mac.jpg',
+    imagePath: 'assets/images/mac_and_cheese.jpg',
     ingredients: [
       '16 oz cavatappi pasta',
       'Cheddar cheese soup',
@@ -84,10 +84,10 @@ final List<Recipe> sampleRecipes = [
         'Sprinkle on top. Bake at 375°F for 20 minutes until golden.',
   ),
 
-  // 5️ Beef and Broccoli
+  // 5️⃣ Beef and Broccoli Stir Fry
   Recipe(
     name: 'Beef and Broccoli Stir Fry',
-    imagePath: 'assets/images/beef_broccoli.jpg',
+    imagePath: 'assets/images/beef_and_broccoli.jpg',
     ingredients: [
       '1 lb sirloin beef',
       '4 cups broccoli florets',
