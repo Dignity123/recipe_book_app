@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../models/recipe.dart';
 
@@ -11,103 +12,185 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
+  double _opacity = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Trigger fade-in after build
+    Future.delayed(const Duration(milliseconds: 200), () {
+      setState(() {
+        _opacity = 1.0;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final recipe = widget.recipe;
+    final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(recipe.name),
-        actions: [
-          IconButton(
-            icon: Icon(
-              recipe.isFavorite ? Icons.favorite : Icons.favorite_border,
-              color: Colors.red,
+      body: Stack(
+        children: [
+
+          // 🔥 Background image
+          SizedBox.expand(
+            child: Image.asset(
+              recipe.imagePath,
+              fit: BoxFit.cover,
             ),
-            onPressed: () {
-              setState(() {
-                recipe.isFavorite = !recipe.isFavorite;
-              });
-            },
+          ),
+
+          // 🔥 Slight dark overlay
+          Container(
+            color: Colors.black.withOpacity(0.4),
+          ),
+
+          SafeArea(
+            child: Column(
+              children: [
+
+                // 🔙 Back + Title
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.arrow_back,
+                            color: Colors.white),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                      Expanded(
+                        child: Text(
+                          recipe.name,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 48),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+
+                Expanded(
+                  child: AnimatedOpacity(
+                    duration: const Duration(milliseconds: 800),
+                    opacity: _opacity,
+                    child: SingleChildScrollView(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: Column(
+                        children: [
+
+                          // 🥕 INGREDIENTS GLASS CARD
+                          _glassCard(
+                            width: screenWidth * 0.85, // reduced width
+                            child: Column(
+                              crossAxisAlignment:
+                                  CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Ingredients",
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                const SizedBox(height: 15),
+                                ...recipe.ingredients.map(
+                                  (ingredient) => Padding(
+                                    padding:
+                                        const EdgeInsets.symmetric(
+                                            vertical: 6),
+                                    child: Text(
+                                      "• $ingredient",
+                                      style: const TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          const SizedBox(height: 30),
+
+                          // 📋 INSTRUCTIONS GLASS CARD
+                          _glassCard(
+                            width: screenWidth * 0.85,
+                            child: Column(
+                              crossAxisAlignment:
+                                  CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Instructions",
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                const SizedBox(height: 15),
+                                ...List.generate(
+                                  recipe.instructions.length,
+                                  (index) => Padding(
+                                    padding:
+                                        const EdgeInsets.symmetric(
+                                            vertical: 8),
+                                    child: Text(
+                                      "${index + 1}. ${recipe.instructions[index]}",
+                                      style: const TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          const SizedBox(height: 50),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+    );
+  }
 
-            // 🔥 Recipe Image
-            Image.asset(
-              recipe.imagePath,
-              height: 220,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-
-            const SizedBox(height: 20),
-
-            // 🥕 Ingredients Title
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                "Ingredients",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+  // 🔥 Reusable Glass Card Widget
+  Widget _glassCard({required double width, required Widget child}) {
+    return Center(
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+          child: Container(
+            width: width,
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.15),
+              borderRadius: BorderRadius.circular(25),
+              border: Border.all(
+                color: Colors.white.withOpacity(0.3),
               ),
             ),
-
-            const SizedBox(height: 8),
-
-            // 🥕 Ingredients List
-            ...recipe.ingredients.map(
-              (ingredient) => Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 4,
-                ),
-                child: Text(
-                  "• $ingredient",
-                  style: const TextStyle(fontSize: 15),
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 24),
-
-            // 📋 Instructions Title
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                "Instructions",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 8),
-
-            // 📋 Numbered Step-by-Step Instructions
-            ...List.generate(
-              recipe.instructions.length,
-              (index) => Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 6,
-                ),
-                child: Text(
-                  "${index + 1}. ${recipe.instructions[index]}",
-                  style: const TextStyle(fontSize: 15),
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 30),
-          ],
+            child: child,
+          ),
         ),
       ),
     );
