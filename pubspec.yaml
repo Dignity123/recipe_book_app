@@ -58,5 +58,13 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/         # includes all files in folder
+    - assets/images/beef_and_broccoli.jpg   
+    - assets/images/homepage.jpg
+    - assets/images/jollof_rice.jpg
+    - assets/images/kung_poa_chicken.webp
+    - assets/images/mac_and_cheese.jpg
+    - assets/images/spaghetti.jpeg
+    - assets/images/whole_brazino.jpg
+
+
   
