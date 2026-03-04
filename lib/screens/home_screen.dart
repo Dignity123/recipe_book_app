@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Stack(
         children: [
 
-          // 🔥 Background Image
+          // Background Image
           SizedBox.expand(
             child: Image.asset(
               'assets/images/homepage.jpg',

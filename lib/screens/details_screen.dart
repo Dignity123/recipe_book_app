@@ -18,7 +18,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
   void initState() {
     super.initState();
 
-    // Trigger fade-in after build
+    // Trigger fade-in after build (Extra feature)
     Future.delayed(const Duration(milliseconds: 200), () {
       setState(() {
         _opacity = 1.0;
@@ -35,7 +35,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
       body: Stack(
         children: [
 
-          // 🔥 Background image
+          // Background image
           SizedBox.expand(
             child: Image.asset(
               recipe.imagePath,
@@ -43,7 +43,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
           ),
 
-          // 🔥 Slight dark overlay
+          // Slight dark overlay
           Container(
             color: Colors.black.withOpacity(0.4),
           ),
@@ -52,7 +52,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
             child: Column(
               children: [
 
-                // 🔙 Back + Title
+                // Back + Title
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
@@ -89,9 +89,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       child: Column(
                         children: [
 
-                          // 🥕 INGREDIENTS GLASS CARD
+                          // INGREDIENTS GLASS CARD 
                           _glassCard(
-                            width: screenWidth * 0.85, // reduced width
+                            width: screenWidth * 0.85, 
                             child: Column(
                               crossAxisAlignment:
                                   CrossAxisAlignment.start,
@@ -124,7 +124,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
                           const SizedBox(height: 30),
 
-                          // 📋 INSTRUCTIONS GLASS CARD
+                          // INSTRUCTIONS GLASS CARD
                           _glassCard(
                             width: screenWidth * 0.85,
                             child: Column(
@@ -172,7 +172,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
     );
   }
 
-  // 🔥 Reusable Glass Card Widget
+  // Reusable Glass Card Widget
   Widget _glassCard({required double width, required Widget child}) {
     return Center(
       child: ClipRRect(

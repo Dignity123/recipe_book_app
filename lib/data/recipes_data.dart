@@ -2,7 +2,7 @@ import '../models/recipe.dart';
 
 final List<Recipe> sampleRecipes = [
 
-  // 1️⃣ Spaghetti
+  // Spaghetti
   Recipe(
     name: 'Spaghetti Bolognese',
     imagePath: 'assets/images/spaghetti.jpeg',
@@ -21,7 +21,7 @@ final List<Recipe> sampleRecipes = [
     ],
   ),
 
-  // 2️⃣ Whole Brazino
+  // Whole Brazino
   Recipe(
     name: 'Whole Brazino',
     imagePath: 'assets/images/whole_brazino.jpg',
@@ -47,7 +47,7 @@ final List<Recipe> sampleRecipes = [
     ],
   ),
 
-  // 3️⃣ Nigerian Jollof Rice
+  // Nigerian Jollof Rice
   Recipe(
     name: 'Nigerian Jollof Rice',
     imagePath: 'assets/images/jollof_rice.jpg',
@@ -76,7 +76,7 @@ final List<Recipe> sampleRecipes = [
     ],
   ),
 
-  // 4️⃣ Mac and Cheese
+  // Mac and Cheese
   Recipe(
     name: 'Mac and Cheese',
     imagePath: 'assets/images/mac_and_cheese.jpg',
@@ -99,7 +99,7 @@ final List<Recipe> sampleRecipes = [
     ],
   ),
 
-  // 5️⃣ Beef and Broccoli
+  // Beef and Broccoli
   Recipe(
     name: 'Beef and Broccoli Stir Fry',
     imagePath: 'assets/images/beef_and_broccoli.jpg',
@@ -126,7 +126,7 @@ final List<Recipe> sampleRecipes = [
     ],
   ),
 
-  // 6️⃣ Kung Poa Chicken
+  // Kung Poa Chicken
   Recipe(
     name: 'Kung Poa Chicken',
     imagePath: 'assets/images/kung_poa_chicken.webp',
